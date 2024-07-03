@@ -159,10 +159,10 @@ function getAndDisplayLastBlockHeader() {
       $('#blockchainHashRate').text(numeral(data.difficulty / ExplorerConfig.blockTargetTime).format('0,0') + ' H/s')
       $('#blockchainReward').text(numeral(data.reward / Math.pow(10, ExplorerConfig.decimalPoints)).format('0,0.00') + ' ' + ExplorerConfig.ticker)
       $('#blockchainTransactions').text(numeral(data.alreadyGeneratedTransactions).format('0,0'))
-      $('#blockchainCirculatingSupply').text(numeral(data.alreadyGeneratedCoins / Math.pow(10, ExplorerConfig.decimalPoints)).format('0,0.00') + ' ' + ExplorerConfig.ticker)
-      $('#blockchainTotalSupply').text(numeral(ExplorerConfig.maxSupply / Math.pow(10, ExplorerConfig.decimalPoints)).format('0,0.00') + ' ' + ExplorerConfig.ticker)
+      $('#blockchainCirculatingSupply').text(numeral(data.alreadyGeneratedCoins / Math.pow(10, ExplorerConfig.decimalPoints)).format('0,0') + ' ' + ExplorerConfig.ticker)
+      $('#blockchainTotalSupply').text(numeral(ExplorerConfig.maxSupply / Math.pow(10, ExplorerConfig.decimalPoints)).format('0,0') + ' ' + ExplorerConfig.ticker)
 
-      var nextFork
+     var nextFork
       for (var i = ExplorerConfig.forkHeights.length; i > 0; i--) {
         if (data.height >= ExplorerConfig.forkHeights[i]) {
           nextFork = ExplorerConfig.forkHeights[i + 1]
@@ -178,7 +178,8 @@ function getAndDisplayLastBlockHeader() {
       const curSupply = data.alreadyGeneratedCoins
       const emiss = (curSupply / maxSupply) * 100
 
-      $('#blockchainSupplyEmission').text(numeral(emiss).format('0.000000') + ' %')
+
+      $('#blockchainSupplyEmission').text(numeral(emiss).format('0.00') + ' %')
     }
   })
 }
