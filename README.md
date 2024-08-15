@@ -1,4 +1,4 @@
-# traaittPlatform® Blockchain Explorer
+# traaittXTCASH Blockchain Explorer
 
 This Blockchain Explorer is entirely self contained.
 
